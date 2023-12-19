@@ -1,0 +1,68 @@
+{% extends "layout.html" %} {% block title %} Register {% endblock %} {% block
+body %}
+<nav class="navbar bg-light border">
+  <div class="container-fluid d-flex">
+    <a class="navbar-brand ms-3 me-auto" href="/">
+      <img
+        src="/static/pencil-square.svg"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      {{blogname}}
+    </a>
+    <a class="nav-link me-4" href="/about">About</a>
+    <a class="btn btn-light btn-outline-dark me-3" href="/login" role="button"
+      >Log in</a
+    >
+  </div>
+</nav>
+<div class="row">
+  <div class="container text-center">
+    <h3 class="mt-4">Admin Registration Page</h3>
+    <p class="mt-2 text-primary">
+      Note: The registration can be only done once for one user. <br />
+      Please be remember your username and password.
+    </p>
+  </div>
+  <div class="error-message fs-5 mt-3 text-center text-danger">
+    {{error_message}}
+  </div>
+  <div>
+    <form class="mx-auto container mt-1 fs-5" action="/register" method="post">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          autocomplete="off"
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          autocomplete="off"
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="passwordRepeat" class="form-label">Password</label>
+        <input
+          autocomplete="off"
+          type="password"
+          class="form-control"
+          id="passwordRepeat"
+          name="passwordRepeat"
+        />
+      </div>
+      <button type="submit" class="btn btn-outline-dark">Register</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

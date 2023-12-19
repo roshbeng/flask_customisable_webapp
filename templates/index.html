@@ -1,0 +1,63 @@
+{% extends "layout.html" %} {% block title %} {{blogname}} {% endblock %} {%
+block body %}
+<nav class="navbar bg-light border">
+  <div class="container-fluid d-flex">
+    <a class="navbar-brand ms-3 me-auto" href="/">
+      <img
+        src="/static/pencil-square.svg"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      {{blogname}}
+    </a>
+    <a class="nav-link me-4" href="/about">About</a>
+    <a class="btn btn-light btn-outline-dark me-3" href="/login" role="button"
+      >Log in</a
+    >
+  </div>
+</nav>
+<div
+  class="row"
+  style="padding-right: calc(var(--bs-gutter-x) * 0.05); --bs-gutter-x: 0rem"
+>
+  <div
+    class="col-lg-2 col-md-2 col-sm-2 col-2 d-flex flex-row-reverse my-auto pe-2"
+    id="section-1"
+  >
+    <form action="/" method="POST">
+      <input type="hidden" value="{{ blog_id }}" name="blog_id_decrement" />
+      <button type="submit" class="btn btn-lg btn-outline-dark my-auto">
+        &lt
+      </button>
+    </form>
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-8 fs-5" id="section-2">
+    <h2 class="mt-3 text-center">{{blog_title}}</h2>
+    {% for paragraph in paragraphs %}
+    <p class="mt-3 text-start">{{paragraph}}</p>
+    {% endfor %}
+  </div>
+  <div
+    class="col-lg-2 col-md-2 col-sm-2 col-2 d-flex flex-row my-auto"
+    id="section-3"
+  >
+    <form action="/" method="POST">
+      <input type="hidden" value="{{ blog_id }}" name="blog_id_increment" />
+      <button type="submit" class="btn btn-lg btn-outline-dark my-auto">
+        &gt
+      </button>
+    </form>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center" id="section-4">
+    <div class="mt-4"><h5>To read more:</h5></div>
+    <div class="mt-2">
+      <a href="{{ blog_hyperlink }}" class="list-group-item"
+        ><strong>{{ blog_anchor }}</strong></a
+      >
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center mt-5"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %} {% block title %} Settings {% endblock %} {% block
+body %}
+<nav class="navbar bg-light border">
+  <div class="container-fluid d-flex">
+    <a class="navbar-brand ms-3 me-auto" href="/">
+      <img
+        src="/static/pencil-square.svg"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      {{blogname}}
+    </a>
+    <a class="nav-link me-4" href="/settings">Settings</a>
+    <a class="btn btn-light btn-outline-dark me-3" href="/logout" role="button"
+      >Log out</a
+    >
+  </div>
+</nav>
+<div class="row">
+  <div class="container text-center">
+    <h3 class="mt-4">Settings</h3>
+  </div>
+  <div class="">
+    <h5 class="container mt-3"><strong>Blog Settings</strong></h5>
+  </div>
+  <div>
+    <div class="container mt-3">
+      <a href="/add" class="list-group-item text-primary"
+        ><strong>Add article</strong></a
+      >
+    </div>
+    <div class="container mt-3">
+      <a href="/delete" class="list-group-item text-primary"
+        ><strong>Delete article</strong></a
+      >
+    </div>
+    <div class="container mt-3">
+      <a href="/blogname" class="list-group-item text-primary"
+        ><strong>Update website name</strong></a
+      >
+    </div>
+    <div class="container mt-3">
+      <a href="/updateabout" class="list-group-item text-primary"
+        ><strong>Update about</strong></a
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}

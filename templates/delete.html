@@ -1,0 +1,60 @@
+{% extends "layout.html" %} {% block title %} Delete Articles {% endblock %} {%
+block body %}
+<nav class="navbar bg-light border">
+  <div class="container-fluid d-flex">
+    <a class="navbar-brand ms-3 me-auto" href="/">
+      <img
+        src="/static/pencil-square.svg"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      {{blogname}}
+    </a>
+    <a class="nav-link me-4" href="/settings">Settings</a>
+    <a class="btn btn-light btn-outline-dark me-3" href="/logout" role="button"
+      >Logout</a
+    >
+  </div>
+</nav>
+<div class="row">
+  <div class="container text-center">
+    <h3 class="mt-4">Delete articles</h3>
+  </div>
+  <div class="container text-center">
+    <table class="container fs-5 table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Article title</th>
+          <th scope="col">Open article</th>
+          <th scope="col">Delete article</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for blog in blog_data %}
+        <tr>
+          <th scope="row">{{blog[1]}}</th>
+          <td>
+            <form action="/" method="post">
+              <input name="blog_id" type="hidden" value="{{ blog[0] }}" />
+              <button class="btn btn-outline-dark btn-sm" type="submit">
+                Open
+              </button>
+            </form>
+          </td>
+          <td>
+            <form action="/delete" method="post">
+              <input name="blog_id" type="hidden" value="{{ blog[0] }}" />
+              <button class="btn btn-outline-dark btn-sm" type="submit">
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
